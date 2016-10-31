@@ -1,0 +1,87 @@
+// Enable JavaScript for HTML output! <pre>
+
+= Hello, Dr!
+:toc: preamble
+:Author: Jonathon Fernyhough
+
+image::http://lorempixel.com/1000/300/[]
+
+Inspired by https://github.com/Xeoncross/Jr[Jr], _Dr_ is a static-static content
+generator for AsciiDoc-formatted documents. Have a look at the page source!
+
+
+== What is AsciiDoc?
+[quote, AsciiDoc website, http://asciidoctor.org/docs/what-is-asciidoc/]
+____
+AsciiDoc is two things:
+
+* A mature, plain-text writing format for authoring notes, articles,
+  documentation, books, ebooks, web pages, slide decks, blog posts, man pages
+  and more.
+* A text processor and toolchain for translating AsciiDoc documents into various
+  formats (called backends), including HTML, DocBook, PDF and ePub.
+____
+
+Visit the http://asciidoc.org[AsciiDoc site] for an introduction to AsciiDoc.
+
+
+== How this works
+
+All pages are plain text with a single Javascript entrypoint included on each page.
+The Javascript then parses the AsciiDoc and renders the theme and assets as needed.
+
+In common with Jr, this means:
+
+* minimal bandwidth requirements
+* better search engine indexing
+* awesome screen reader support
+
+but, because it's AsciiDoc, you get many more features compared to Markdown. File
+includes, image embedding, proper tabular data, a table of content, footnotes, ...
+
+
+== How do I use it?
+
+. Write your AsciiDoc document
+. Add the following tag to the end:
+[source,html]
+&lt;script data-main="js/dr" src="js/require.js"&gt;&lt;/script&gt;
+. Save it with a `.html` file extension and view it in a browser.
+
+
+== Components
+
+The _Dr_ project is based around several components:
+
+* A tweaked `asciidocify.js` that takes care of the AsciiDoc input, taken from the 
+  https://github.com/asciidoctor/asciidoctor-firefox-addon[Asciidoctor Firefox addon];
+* https://github.com/asciidoctor/asciidoctor.js[asciidoctor.js] for the conversion back-end;
+* https://github.com/google/code-prettify[prettify] for syntax highlighting;
+* http://requirejs.org[RequireJS] for a single entry point and post-load actions.
+
+
+== Example elements
+
+.Numbered list
+. item 1.footnote:[This might not actually be first]
+. item 2
+
+.Source code
+[source,ruby]
+area = "World"
+puts "Hello, #{area}"
+
+[source,bash]
+for i in Hello World; do
+    echo $i
+done
+
+.Tabular data from CSV items
+[format="csv", options="header"]
+|===
+Artist,Track,Genre
+Baauer,Harlem Shake,Hip Hop
+The Lumineers,Ho Hey,Folk Rock
+|===
+
+
