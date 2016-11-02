@@ -85,5 +85,28 @@ The Lumineers,Ho Hey,Folk Rock
 |===
 
 
+== Additional scripts
+
+Additional scripts can be included to gain extra functionality; the additional
+script just needs to be included somewhere, whether as an element on an
+individual page, or within `js/dr.js`.  For example, the following elements use
+https://www.mathjax.org/[MathJax].
+
+.LaTeX Math
+latexmath:[$C = \alpha + \beta Y^{\gamma} + \epsilon$]
+
+.MathJax
+When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+\(x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\)
+
+.LaTeXMathML
+latexmath:[$\sum_{n=1}^\infty \frac{1}{2^n}$]
+
+See the http://asciidoc.org/userguide.html#X78[AsciiDoc user guide] for more
+information on including mathematical formulae.
+
 <script data-main="js/dr" src="js/require.js"></script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
